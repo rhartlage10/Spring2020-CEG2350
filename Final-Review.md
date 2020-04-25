@@ -135,9 +135,22 @@
          * Place ‘d’ for delete instead of ‘p’ for print in above examples.  Instead of printing, it will perform the corresponding delete.
          * Note that this has not permanently affected our file.  This is how you can and should text your expressions before making it permanent
       * saving changes
-         $ sed ‘’ file.txt > out.txt #good old redirection
-         $ sed –i ‘1d’ file.txt #-i sets IN PLACE editing, which means your file IS changed
-         $ sed –i.bak ‘1d’ file.txt #creates a backup of the original file ending with .bak
+         * $ sed ‘’ file.txt > out.txt #good old redirection
+         * $ sed –i ‘1d’ file.txt #-i sets IN PLACE editing, which means your file IS changed
+         * $ sed –i.bak ‘1d’ file.txt #creates a backup of the original file ending with .bak
+      * substitution format
+         * Sed has the ability to search for text patterns using regular expressions, and then replace the found text
+            * $ sed ‘s/old_stuff/new_stuff/’
+               * Each slash (/) is a delimiter. You could use underscores (_) as delimeters as well.
+            * $ sed ‘s/on/forward/’ file.txt
+               * Replaces the first ‘on’ match with ‘forward’
+            * $ sed ‘s/on/forward/g’ file.txt
+               * Replaces every ‘on’ match with ‘forward’
+            * $ sed ‘s/on/forward/gp’ file.txt
+               * P at the end will have it only print lines that were affected
+            * $ sed 's/^.*at/REPLACED/’ file.txt
+               * Matches from beginning of line until ‘at’ is found, and substitutes all with ‘REPLACED’
+
 
 
 
