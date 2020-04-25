@@ -18,17 +18,47 @@
         else  
             stuff  
         fi
+        
+        example in powerpoint:
+        if [ -r somefile ]; then
+            content=$(cat somefile)
+        elif [ -f somefile ]; then
+            echo "The file 'somefile' exists but is not readable to the script."
+        else
+            echo "The file 'somefile' does not exist."
+         fi
+    https://www.geeksforgeeks.org/conditional-statements-shell-script/
+        
     * loops
         * for loops:  
         for i in LIST  
         do  
             stuff with $i  
         done
+        
+        example in powerpoint:
+        for i in 1 2 3 4 5
+        do
+            echo "Welcome $i times"
+        done
+        (can’t use $i until i is initialized)
+        https://www.cyberciti.biz/faq/bash-for-loop/
+        
         * while loops:  
         while [CONDITION]  
         do  
             stuff  
         done
+         
+        example in powerpoint:
+        x=1
+        while [ $x -le 5 ]
+        do
+            echo "Welcome $x times"
+            x=$(( $x + 1 ))
+        done
+        https://www.cyberciti.biz/faq/bash-while-loop/
+
     * using `test` flags
         * conditionals in scripting
         * remember you don't need the word `test`, you can just use the the conditional provided by `test`
@@ -36,8 +66,20 @@
         * to access individual arguments: $# where # is the argument from the command line
         * to access all arguments: $@
 * regular expressions
+   
 * sed (basic format) (see quiz 3)
-* various ways to input / output from a file
+
+* various ways to input / output from a file 
+   * from powerpoint:
+      > IO redirection using files
+      > 'read' - will scan standard input
+      > 'printf' - formats and prints
+      > 'echo' - prints to standard output
+      > Capture arguments:
+         * $# where number is which argument you want to use
+         * $@ - lets you access arguments as a list
+         * So that you can use them in a loop, for example
+
 
 ### git
 * init
