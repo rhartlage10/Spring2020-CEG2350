@@ -1,5 +1,4 @@
 # Topic Overview of Final Exam
-It may be useful to fork / clone this to your github.  This will make you feel really cool.
 
 ### also important
 * ssh keys
@@ -108,9 +107,3 @@ Open on Monday, 4/27, from 9:00 AM to 11:59 PM
 You get two (2) hours from when you start the exam
 You may use an electronic or printed "cheat sheet" as well as a terminal you have access to (including your AWS instance)
 If I see the same words as are on my slides, much disappointment shall occur (and grade shall reflect)
-TODO: Quiz 3 visibility
-
-Additional due dates:
-Lab 08 - 4/24 (please include Lab08 extra credit with this submission)
-Lab redo - 4/24
-Extra Credit "Lab" - 5/1
