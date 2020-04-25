@@ -19,7 +19,7 @@
             stuff  
         fi
         
-        example in powerpoint:
+        * example in powerpoint:
         if [ -r somefile ]; then
             content=$(cat somefile)
         elif [ -f somefile ]; then
@@ -36,7 +36,7 @@
             stuff with $i  
         done
         
-        example in powerpoint:
+        * example in powerpoint:
         for i in 1 2 3 4 5
         do
             echo "Welcome $i times"
@@ -50,7 +50,7 @@
             stuff  
         done
          
-        example in powerpoint:
+        * example in powerpoint:
         x=1
         while [ $x -le 5 ]
         do
@@ -71,11 +71,11 @@
 
 * various ways to input / output from a file 
    * from powerpoint:
-      > IO redirection using files
-      > 'read' - will scan standard input
-      > 'printf' - formats and prints
-      > 'echo' - prints to standard output
-      > Capture arguments:
+      * IO redirection using files
+      * 'read' - will scan standard input
+      * 'printf' - formats and prints
+      * 'echo' - prints to standard output
+      * Capture arguments:
          * $# where number is which argument you want to use
          * $@ - lets you access arguments as a list
          * So that you can use them in a loop, for example
