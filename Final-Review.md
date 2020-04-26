@@ -3,7 +3,17 @@
 ### also important
 * ssh keys
     * private vs public (and where to put which)
-* sftp
+      * private keys need to be kept secure.  These are not for public use 
+    * ssh-keygen
+    * SSH is the standard for remote access to a system
+    * Encrypts your password & session data
+    * Tunnels other network connections – we could have a system that requires we use X-Server to see the remote application
+    * Offers clients for most Operating Systems
+    * Can use keys for host authentication
+    * $ ssh remote_username@host
+      * When you make a connection, it gets added to ~/.ssh/known_hosts
+* sftp: secure file transfer protocol
+   * File transfer program from remote to local or from one host to another
 * compression: allows you to take up less disk space
    * Compression techniques:
       * Lossless: formats that lose no data (or strive to)
@@ -151,11 +161,6 @@
             * $ sed 's/^.*at/REPLACED/’ file.txt
                * Matches from beginning of line until ‘at’ is found, and substitutes all with ‘REPLACED’
 
-
-
-
-
-
 * various ways to input / output from a file 
    * from powerpoint:
       * IO redirection using files
@@ -197,25 +202,41 @@
 
 ### networking 
 * application layer
+    * language that applications and servers use to communicate  
+      * protocols include HTTP, SSL, FTP
     * web servers, ssh, file share
 * transport / protocol layer
-    * TCP - handshake protocol where the connecting system and the system being connected to
+    * data transmission characteristics of applications  
+    * TCP (Transmission Control Protocol) - handshake protocol where the connecting system and the system being connected to
         are constantly in communcation about recieving packets
-    * UDP - the connecting system is going to request information, and the system being connect to doesn't care if you got it or if was correct.  
+    * UDP (User Datagram Protocol) - the connecting system is going to request information, and the system being connect to doesn't care if you got it or if was correct.  
     * Ports (and some common services on those common ports)
         * SSH or SFTP runs on port 22
         * HTTP runs on port 80 
         * HTTPS runs on port 443
 * network / internet layer
+    * how to move packets from a source to a destination
     * subnets - filter what is seen as "local" traffic
+      * 10.23.2.0/24 = 255.255.255.0
+      * subnet mask defines what is local traffic
     * routes
+      * Definition: defines how traffic goes out and back in
+      * $ route –n # displays routing table 
     * ip - outside of my system - assign to a system (we can base this on a MAC address for some hardware verification if wanted)
         * public ip - this would access global communcation 
         * private ip - usually behind a router that then allows communcation with the outside world
     * gateway
-    * dns (hostname)
-    * dhcp
+    * dns (hostname) -  DNS = Domain Name Service
+      * Set a system hostname (for local system):
+         * Windows: Powershell - Rename-Computer -NewName “NEW-PC-NAME”
+         * Linux: Edit ‘/etc/hostname’ OR hostnamectl set-hostname “NEW-HOST-NAME”
+    * dhcp: Dynamic Host Configuration Protocol
+      * allows a device to automatically get its configuration from the network.
+      * No manual entering of settings
+      * No duplication of IPs
 * physical layer
+    * how to send raw data across physical medium
+      * AKA Link layer or host-to-network layer
     * network interfaces (can be found with ifconfig in linux or with ipconfig in Windows)
         * Linux list these as eth0, wifi0, lo
         * Windows 
@@ -223,11 +244,25 @@
 * private networks (and their virtual counterparts)
 * role of a router (virtual or physical)
     * directs traffic usually from a private network to a public network / server and back again
+    * A router has more than one network interface.  
+      * Yours at home should have a cable for getting to the world – this is called the internet uplink
+    * most common private networks: 
+      * 10.0.0.0 / 255.0.0.0
+      * 192.168.0.0 / 255.255.0.0
+      * 172.16.0.0 / 255.240.0.0
+
+    * Router / gateway – a host on multiple subnets that routes traffic 
+         * A router usually has a local subnet and a link to the internet
 * role of firewalls locally (iptables) and by a specific device (for a network)
 * http vs https - hypertext transfer protocol
     * HTTPS - digital certificates - from a certificate authority
         * encrypted connection between connecting system and server
 
+> You get an email with:
+> IP: 130.108.67.34
+> Subnet: 255.255.255.0
+> Gateway: 130.108.67.1
+> DNS: 130.108.23.24
 
 
 
