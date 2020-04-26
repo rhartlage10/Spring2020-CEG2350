@@ -34,8 +34,6 @@
       * we can compress a tar archive with gzip to compress again
       * tar bundles, but doesn't compress
       * It keeps info about file permissions, and it has the file contents in plain text
-
-   
 * checksums
    * Definition: A checksum is a sequence of numbers and letters used to check data for errors. If you know the checksum of an original file, you can use a checksum utility to confirm your copy is identical.
    * Algortithms used include:
@@ -174,31 +172,59 @@
 
 
 ### git
-* init
+* init: git init initializes a repository
 * clone
 * **add**
 * **commit**
-* **push**
+* **push** : Pushes commits from my repo to the server
 * **branch / checkout**
+   * git checkout command lets you navigate between the branches created by git branch. 
+   * Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch.
+
 * **merge**
     * What step(s) should I take for a successful merge?
     * What does a merge do?
+      * merge will combine multiple sequences of commits into one unified history. 
+      * In the most frequent use cases, git merge is used to combine two branches.
+      * Once Git finds a common base commit it will create a new "merge commit" that combines the changes of each queued merge commit sequence.
+
 * pull (fetch + merge)
+   * Pull is used to fetch and download content from a remote repository and immediately update the local repository to match that content.
+   * Pull is really a combo of fetch followed by merge
 * when to use a fork vs. a branch
     * fork - mostly for a full deviation from an original project
-    * branch - mostly for features
+      *  When a branch needs to become it’s own thing (goes out of scope of the master branch), that’s when you should fork the project
+      * Forks are commonly done when you see a useful start to your own project, and want to fork the primary project for a base of yours.
+    * branch - mostly for features, useful for development streams
 
 ### virtualization
 * virtual machines
     * what is a hypervisor? (week 11, slide 5)
+      * Process that creates and runs VMs
+      * Allows one host computer to support multiple guest VMs by virtually sharing its resources
+      * Separates VMs from each other logically, assigning each its own slice of the underlying computing power, memory, and storage. 
+      * This prevents the VMs from interfering with each other; so if, for example, one OS suffers a crash or a security compromise, the others survive.
+      * When we have a host machine and install an additional application to run guest machines, we are using a Type 2 hypervisor
+      * Type 1 hypervisors run are “bare metal” – they are the host
+
     * Install a full iso (including kernel)
     * Hypervisor virtualizes host machine's hardware
     * VMWare and VirtualBox
+      * VirtualBox – by Oracle, pretty OpenSource, Windows, Mac, and Linux support
+      * VMWare – Maybe owned by Dell now?  Smoother experience (entirely my opinion). Windows and Linux support
+
+
 * containers
     * built from a recipe or build file
     * can run as an "image" or as a shell
-    * relies on host kernel
+    * relies on host OS kernel 
     * Docker and Singularity
+      * Singularity implements a more secure version than Docker, so High Performance Computing systems focus on Singularity
+      * In a Singularity container, your user identity is the same as on the host environment.  This makes sharing data between your home directory on the host and your container easy.  In fact, Singularity automatically mounts your home directory inside of the container.
+      * Singularity also uses a single build or recipe file.  To transfer your environment to another person, they only need one file.
+      * Docker is more everyday, so Singularity allows use of pre-built containers from Docker, but adds the security of Singularity.
+    * require an underlying operating system that provides the basic services to all of the containerized applications using virtual-memory support for isolation
+
 
 ### networking 
 * application layer
@@ -209,7 +235,7 @@
     * data transmission characteristics of applications  
     * TCP (Transmission Control Protocol) - handshake protocol where the connecting system and the system being connected to
         are constantly in communcation about recieving packets
-    * UDP (User Datagram Protocol) - the connecting system is going to request information, and the system being connect to doesn't care if you got it or if was correct.  
+    * UDP (User Datagram Protocol) - the connecting system is going to request information, and the system being connect to doesn't care if you got it or if was correct. Example - video chatting
     * Ports (and some common services on those common ports)
         * SSH or SFTP runs on port 22
         * HTTP runs on port 80 
@@ -257,6 +283,10 @@
 * http vs https - hypertext transfer protocol
     * HTTPS - digital certificates - from a certificate authority
         * encrypted connection between connecting system and server
+        * Browser assumes it’s connected to the correct web server
+        * Browser checks security certificate and verifies it comes from a legitimate certificate authority
+         * Certificate Authority – the maintainers of the certificate keys.  Unlike the private / public keys we create, certificates for sites have an expiration date, then they need to be renewed.
+        * People can’t see what you’re searching - they only get your primary URL
 
 > You get an email with:
 > IP: 130.108.67.34
