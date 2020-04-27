@@ -3,7 +3,15 @@
 ### also important
 * ssh keys
     * private vs public (and where to put which)
-      * private keys need to be kept secure.  These are not for public use 
+      * /home/ubuntu/.ssh/id_rsa is where they keypair gets stored in
+      * Private:
+         * private keys need to be kept secure - not for public use 
+         * private key is in the file specified when the key was created
+         * if we cat the private key, it says BEGIN RSA PRIVATE KEY at the top of the file
+         * private key is much longer and therefore harder to decrypt than the public key
+      * Public:
+         * public key gets stored in the .pub file
+	      * public key is significantly shorter and begins with ssh-rsa
     * ssh-keygen
     * SSH is the standard for remote access to a system
     * Encrypts your password & session data
@@ -35,7 +43,7 @@
       * tar bundles, but doesn't compress
       * It keeps info about file permissions, and it has the file contents in plain text
 * checksums
-   * Definition: A checksum is a sequence of numbers and letters used to check data for errors. If you know the checksum of an original file, you can use a checksum utility to confirm your copy is identical.
+   * Definition: a sequence of numbers and letters used to check data for errors. If you know the checksum of an original file, you can use a checksum utility to confirm your copy is identical.
    * Algortithms used include:
       * MD5 (128-bit)
       * SHA-1 (160-bit)
@@ -50,11 +58,6 @@
          * md5sum
          * sha1sum
          * sha256sum 
-
-      
-
-
-
 
 ### bash
 * bash scripting
@@ -170,24 +173,23 @@
          * $@ - lets you access arguments as a list
          * So that you can use them in a loop, for example
 
-
 ### git
 * init: git init initializes a repository
-* clone
-* **add**
-* **commit**
-* **push** : Pushes commits from my repo to the server
+* clone: primarily used to point to an existing repo and make a clone or copy of that repo at in a new directory, at another location
+* **add**: adds a change in the working directory to the staging area. It tells Git that you want to include updates to a particular file in the next commit
+* **commit**: save your changes to the local repository
+* **push**: upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo
 * **branch / checkout**
-   * git checkout command lets you navigate between the branches created by git branch. 
+   * git branch: lets you create, list, rename, and delete branches
+   * git checkout: lets you navigate between the branches created by git branch. 
    * Checking out a branch updates the files in the working directory to match the version stored in that branch, and it tells Git to record all new commits on that branch.
-
 * **merge**
     * What step(s) should I take for a successful merge?
+      * git checkout master, git pull origin master, git merge test, git push origin master
     * What does a merge do?
-      * merge will combine multiple sequences of commits into one unified history. 
+      * lets you take the history from individual branches and combine them to into one unified history
       * In the most frequent use cases, git merge is used to combine two branches.
       * Once Git finds a common base commit it will create a new "merge commit" that combines the changes of each queued merge commit sequence.
-
 * pull (fetch + merge)
    * Pull is used to fetch and download content from a remote repository and immediately update the local repository to match that content.
    * Pull is really a combo of fetch followed by merge
@@ -212,8 +214,6 @@
     * VMWare and VirtualBox
       * VirtualBox – by Oracle, pretty OpenSource, Windows, Mac, and Linux support
       * VMWare – Maybe owned by Dell now?  Smoother experience (entirely my opinion). Windows and Linux support
-
-
 * containers
     * built from a recipe or build file
     * can run as an "image" or as a shell
@@ -276,7 +276,6 @@
       * 10.0.0.0 / 255.0.0.0
       * 192.168.0.0 / 255.255.0.0
       * 172.16.0.0 / 255.240.0.0
-
     * Router / gateway – a host on multiple subnets that routes traffic 
          * A router usually has a local subnet and a link to the internet
 * role of firewalls locally (iptables) and by a specific device (for a network)
@@ -288,11 +287,11 @@
          * Certificate Authority – the maintainers of the certificate keys.  Unlike the private / public keys we create, certificates for sites have an expiration date, then they need to be renewed.
         * People can’t see what you’re searching - they only get your primary URL
 
-> You get an email with:
-> IP: 130.108.67.34
-> Subnet: 255.255.255.0
-> Gateway: 130.108.67.1
-> DNS: 130.108.23.24
+* You get an email with:
+* IP: 130.108.67.34
+* Subnet: 255.255.255.0
+* Gateway: 130.108.67.1
+* DNS: 130.108.23.24
 
 
 
